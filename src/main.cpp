@@ -108,15 +108,18 @@ void test_squeezenet(int n_thread)
     MultiThreadModelManager model_manager;
     //EASY_LOGI("test_squeezenet 1");
     // load model
-    for(int i = 0; i < n_thread; i++)
     {
-        res.emplace_back(threadpool.enqueue(&ModelLoader::loadModel, &model_loader, &model_manager));
+        EasyTimer atm_load("load");
+        for(int i = 0; i < n_thread; i++)
+        {
+            res.emplace_back(threadpool.enqueue(&ModelLoader::loadModel, &model_loader, &model_manager));
+        }
+        for(auto && r : res)
+        {
+            r.get();
+        }
+        res.clear();
     }
-    for(auto && r : res)
-    {
-        r.get();
-    }
-    res.clear();
     //EASY_LOGI("test_squeezenet 2");
     // run
     for(int i = 0; i < n_job_num; i++)
