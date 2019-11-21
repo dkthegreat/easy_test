@@ -19,12 +19,17 @@ endif()
 include_directories(
     ${CMAKE_CURRENT_SOURCE_DIR}/MNN/include
     ${CMAKE_CURRENT_SOURCE_DIR}/include
+
+    ${CMAKE_CURRENT_SOURCE_DIR}/src/squeezenet_test
 )
 
 add_executable(
     ${PROJECT_NAME}
     ${CMAKE_CURRENT_SOURCE_DIR}/src/easy_timer.cpp
+    ${CMAKE_CURRENT_SOURCE_DIR}/src/easy_auto_file_io.cpp
     ${CMAKE_CURRENT_SOURCE_DIR}/src/main.cpp
+
+    ${CMAKE_CURRENT_SOURCE_DIR}/src/squeezenet_test/squeezenet_test.cpp
 )
 
 if ("${TARGET_PLATFORM}" STREQUAL "linux_x86_64")
