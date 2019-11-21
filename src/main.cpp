@@ -145,36 +145,12 @@ void test_squeezenet(int n_thread)
     //EASY_LOGI("test_squeezenet out");
 }
 
+#include "nv12_jpeg_convert_test.h"
+
 int main(int argc, char * argv[])
 {
     
     int ret = 0;
-    //test_squeezenet(8);
-#if 1
-    test_squeezenet(1);
-    test_squeezenet(1);
-    test_squeezenet(1);
-    test_squeezenet(2);
-    test_squeezenet(2);
-    test_squeezenet(2);
-    test_squeezenet(3);
-    test_squeezenet(3);
-    test_squeezenet(3);
-    test_squeezenet(4);
-    test_squeezenet(4);
-    test_squeezenet(4);
-    test_squeezenet(5);
-    test_squeezenet(5);
-    test_squeezenet(5);
-    test_squeezenet(6);
-    test_squeezenet(6);
-    test_squeezenet(6);
-    test_squeezenet(7);
-    test_squeezenet(7);
-    test_squeezenet(7);
-    test_squeezenet(8);
-    test_squeezenet(8);
-    test_squeezenet(8);
-#endif
+    ret = nv12_jpeg_convert_test();
     return ret;
 }
